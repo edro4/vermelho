@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Estudo em Vermelho - Jogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .scene {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .choices {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Um Estudo em Vermelho - Jogo</h1>
+    <div class="scene" id="scene">
+        <p>Você é John Watson, e acabou de se mudar para Londres. Um dia, você encontra Sherlock Holmes, um detetive excêntrico, que está investigando um assassinato misterioso. O que você faz?</p>
+    </div>
+    <div class="choices">
+        <button onclick="choose('investigar')">Investigar a cena do crime</button>
+        <button onclick="choose('seguir')">Seguir Sherlock</button>
+    </div>
+
+    <script>
+        function choose(option) {
+            const scene = document.getElementById('scene');
+            if (option === 'investigar') {
+                scene.innerHTML = '<p>Você chega à cena do crime e vê um corpo no chão. O que você faz agora?</p>';
+                document.querySelector('.choices').innerHTML = `
+                    <button onclick="choose('analisar')">Analisar o corpo</button>
+                    <button onclick="choose('chamar')">Chamar a polícia</button>
+                `;
+            } else if (option === 'seguir') {
+                scene.innerHTML = '<p>Você decide seguir Sherlock e acaba em uma conversa com um suspeito. O que você faz?</p>';
+                document.querySelector('.choices').innerHTML = `
+                    <button onclick="choose('interrogar')">Interrogar o suspeito</button>
+                    <button onclick="choose('escutar')">Escutar a conversa</button>
+                `;
+            } else if (option === 'analisar') {
+                scene.innerHTML = '<p>Você encontra uma pista no corpo que leva a uma nova direção na investigação!</p>';
+                // Adicione mais opções aqui
+            } else if (option === 'chamar') {
+                scene.innerHTML = '<p>A polícia chega e leva as informações, mas você sente que algo está faltando...</p>';
+                // Adicione mais opções aqui
+            } else if (option === 'interrogar') {
+                scene.innerHTML = '<p>O suspeito parece nervoso e você pressiona mais. O que você descobre?</p>';
+                // Adicione mais opções aqui
+            } else if (option === 'escutar') {
+                scene.innerHTML = '<p>Você ouve algo que pode ser uma pista importante. O que você faz a seguir?</p>';
+                // Adicione mais opções aqui
+            }
+        }
+    </script>
+
+</body>
+</html>
